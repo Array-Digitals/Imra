@@ -17,7 +17,7 @@ export const Dashboard = () => {
   }, [])
 
   const fetchData = () => {
-    getSearchCount('65802692165553459d1d25df').then((res) => {
+    getSearchCount(userId).then((res) => {
       console.log(res.data.data, 'dash1');
       const response = res.data.data;
       const totalSearchCount = response.reduce((sum, entry) => sum + entry.searchCount, 0);
@@ -26,7 +26,7 @@ export const Dashboard = () => {
     }).catch((res) => {
       console.log(res, 'error');
     })
-    getCountRecep('65802692165553459d1d25df').then((res) => {
+    getCountRecep(userId).then((res) => {
       console.log(res.data.data, 'dash2');
       setCountReceptData(res.data.data)
     }).catch((res) => {
